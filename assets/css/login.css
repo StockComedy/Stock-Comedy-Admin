@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Centering the login form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Login Box */
+.login-box {
+    background-color: #ffffff; /* White background */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;  /* Reduced max-width for better centering */
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Ensure padding is within the width */
+}
+
+/* Heading */
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* OTP Inputs Container */
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 100%; /* Ensure container fills the available space */
+}
+
+/* OTP Input Fields */
+.otp {
+    width: 45px; /* Reduced size for better alignment */
+    height: 45px; /* Consistent height */
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.otp:focus {
+    border-color: #4caf50; /* Green border when focused */
+    background-color: #fff;
+}
+
+.otp:invalid {
+    border-color: #ff6f61; /* Red border for invalid input */
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #4caf50; /* Green color */
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; /* Make button span the full width */
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* OTP Link Style */
+#otp-link {
+    cursor: pointer;
+}
+
+#otp-link:hover {
+    color: #0056b3;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .otp {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .otp-inputs {
+        gap: 10px; /* Adjust gap for smaller screens */
+    }
+}

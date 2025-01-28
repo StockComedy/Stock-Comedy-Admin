@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | StockComedy Admin</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>StockComedy Admin</h2>
+        <ul class="nav-links">
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="ipo-list.html">IPO List</a></li>
+            <li><a href="add-ipo.html">Add IPO</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome, Admin</h1>
+            <p>Manage IPOs efficiently using this dashboard.</p>
+        </header>
+
+        <section class="stats">
+            <div class="stat-box">
+                <h3>Total IPOs</h3>
+                <p id="total-ipos">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Upcoming IPOs</h3>
+                <p id="upcoming-ipos">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Active IPOs</h3>
+                <p id="active-ipos">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Completed IPOs</h3>
+                <p id="completed-ipos">0</p>
+            </div>
+        </section>
+
+        <section class="recent-ipos">
+            <h2>Recent IPOs</h2>
+            <table id="recent-ipo-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Offering Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

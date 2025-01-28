@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add IPO | StockComedy Admin</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/add-ipo.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>StockComedy Admin</h2>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="ipo-list.html">IPO List</a></li>
+            <li><a href="add-ipo.html" class="active">Add IPO</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Add New IPO</h1>
+            <p>Fill in the details below to add a new IPO.</p>
+        </header>
+
+        <form class="ipo-form">
+            <div class="form-group">
+                <label for="company-name">Company Name</label>
+                <input type="text" id="company-name" name="companyName" placeholder="Enter company name" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="stock-symbol">Stock Symbol</label>
+                <input type="text" id="stock-symbol" name="stockSymbol" placeholder="Enter stock symbol" required minlength="4" maxlength="5">
+            </div>            
+        
+            <div class="form-group">
+                <label for="sector">Sector</label>
+                <select id="sector" name="sector" required>
+                    <option value="" disabled selected>Select a sector</option>
+                    <option value="Communication Services">Communication Services</option>
+                    <option value="Consumer Discretionary">Consumer Discretionary</option>
+                    <option value="Consumer Staples">Consumer Staples</option>
+                    <option value="Energy">Energy</option>
+                    <option value="Financials">Financials</option>
+                    <option value="Health Care">Health Care</option>
+                    <option value="Industrials">Industrials</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Materials">Materials</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Utilities">Utilities</option>
+                </select>
+            </div>            
+        
+            <div class="form-group">
+                <label for="ipo-date">IPO Date</label>
+                <input type="date" id="ipo-date" name="ipoDate" placeholder="dd/mm/yyyy" required>
+            </div>                      
+        
+            <div class="form-group">
+                <label for="offering-price">Offering Price</label>
+                <input type="number" id="offering-price" name="offeringPrice" placeholder="Enter offering price" required step="any">
+            </div>            
+        
+            <div class="form-group">
+                <label for="total-shares">Total Shares</label>
+                <input type="number" id="total-shares" name="totalShares" placeholder="Enter total shares" required>
+            </div>
+        
+            <button type="submit" class="submit-btn">Add IPO</button>
+        </form>
+        
+    <!-- Modal for IPO confirmation -->
+    <div id="confirmationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>IPO Confirmation</h3>
+            <p><strong>Company Name:</strong> <span id="confirmCompanyName"></span></p>
+            <p><strong>Stock Symbol:</strong> <span id="confirmStockSymbol"></span></p>
+            <p><strong>Sector:</strong> <span id="confirmSector"></span></p>
+            <p><strong>IPO Date:</strong> <span id="confirmIpoDate"></span></p>
+            <p><strong>Offering Price:</strong> $<span id="confirmOfferingPrice"></span></p>
+            <p><strong>Total Shares:</strong> <span id="confirmTotalShares"></span></p>
+            <button onclick="confirmIpo()">Confirm</button>
+            <button onclick="cancelIpo()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="assets/js/global.js"></script>
+    <script src="../assets/js/add-ipo.js"></script>
+</body>
+</html>
