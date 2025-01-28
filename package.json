@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@sendgrid/mail": "^8.1.4"
+    "firebase": "^11.1.0"
   }
 }

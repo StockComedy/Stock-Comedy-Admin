@@ -1,3 +1,22 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+// Your Firebase config
+const firebaseConfig = {
+    apiKey: "AIzaSyDUKi9EMIGputcL32kdGs7W-bhaiGRYKYI",
+    authDomain: "stockcomedy-666.firebaseapp.com",
+    databaseURL: "https://stockcomedy-666-default-rtdb.firebaseio.com",
+    projectId: "stockcomedy-666",
+    storageBucket: "stockcomedy-666.firebasestorage.app",
+    messagingSenderId: "670829636816",
+    appId: "1:670829636816:web:bca160907d8e10ec8d02d5",
+    measurementId: "G-T8XFP8TFGV"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 document.addEventListener("DOMContentLoaded", function () {
     // Set the minimum date for the IPO date (tomorrow)
     const ipoDateInput = document.getElementById('ipo-date');
@@ -74,9 +93,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('confirmationModal').style.display = 'none';
     }
 
-    // Confirm IPO function
-    function confirmIpo() {
-        // Handle the form data further, e.g., sending it to a server or storing it in a database
+    // Confirm IPO function (Add to Firestore)
+    async function confirmIpo() {
+        // Get form values again (to send them to Firestore)
         const companyName = document.getElementById('company-name').value;
         const stockSymbol = document.getElementById('stock-symbol').value;
         const sector = document.getElementById('sector').value;
@@ -91,18 +110,26 @@ document.addEventListener("DOMContentLoaded", function () {
             ipoDate,
             offeringPrice,
             totalShares,
+            status: 'Open for Subscription',  // Default value, you can adjust
+            positive: true,  // You can dynamically set this
         };
 
-        console.log("New IPO Added:", ipoDetails);
+        try {
+            // Save the IPO data to Firestore
+            await addDoc(collection(db, "ipos"), ipoDetails);
 
-        // Show confirmation message
-        alert("New IPO added successfully!");
+            // Show confirmation message
+            alert("New IPO added successfully!");
 
-        // Optionally, reset the form
-        document.querySelector('.ipo-form').reset();
+            // Optionally, reset the form
+            document.querySelector('.ipo-form').reset();
 
-        // Close the modal
-        closeModal();
+            // Close the modal
+            closeModal();
+        } catch (error) {
+            console.error("Error adding IPO: ", error);
+            alert("Failed to add IPO. Please try again.");
+        }
     }
 
     // Cancel IPO function

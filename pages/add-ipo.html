@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add IPO | StockComedy Admin</title>
-    <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/add-ipo.css">
 </head>
 <body>
@@ -14,7 +13,6 @@
         <h2>StockComedy Admin</h2>
         <ul class="nav-links">
             <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="ipo-list.html">IPO List</a></li>
             <li><a href="add-ipo.html" class="active">Add IPO</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
@@ -27,7 +25,7 @@
             <p>Fill in the details below to add a new IPO.</p>
         </header>
 
-        <form class="ipo-form">
+        <form class="ipo-form" id="ipoForm">
             <div class="form-group">
                 <label for="company-name">Company Name</label>
                 <input type="text" id="company-name" name="companyName" placeholder="Enter company name" required>
@@ -90,7 +88,6 @@
         </div>
     </div>
 
-    <script src="assets/js/global.js"></script>
-    <script src="../assets/js/add-ipo.js"></script>
+    <script type="module" src="../assets/js/add-ipo.js"></script>
 </body>
 </html>
